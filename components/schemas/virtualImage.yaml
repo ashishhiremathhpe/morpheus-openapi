@@ -1,30 +1,35 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
+    nullable: true
+  description:
     type: string
     nullable: true
   labels:
     type: array
-    items: 
+    items:
       type: string
-  ownerId: 
+      nullable: true
+  ownerId:
     type: integer
     format: int64
-  tenant: 
+  tenant:
     type: object
-    properties: 
-      id: 
+    nullable: true
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  imageType: 
+        nullable: true
+  imageType:
     type: string
+    nullable: true
   userUploaded: 
     type: boolean
   userDefined: 
@@ -36,42 +41,49 @@ properties:
   sshUsername: 
     type: string
     nullable: true
-  sshPassword: 
+  sshPassword:
     type: string
     nullable: true
-  sshPasswordHash: 
+  sshPasswordHash:
     type: string
     nullable: true
-  sshKey: 
+  sshKey:
     type: string
     nullable: true
-  osType: 
+  osType:
     type: object
     nullable: true
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
-        type: string
-      name: 
-        type: string
-      description: 
+      code:
         type: string
         nullable: true
-      vendor: 
+      name:
         type: string
-      category: 
+        nullable: true
+      description:
         type: string
-      osFamily: 
+        nullable: true
+      vendor:
         type: string
-      osVersion: 
+        nullable: true
+      category:
         type: string
+        nullable: true
+      osFamily:
+        type: string
+        nullable: true
+      osVersion:
+        type: string
+        nullable: true
       bitCount: 
         type: integer
         format: int64
       platform: 
         type: string
+        nullable: true
   minRam: 
     type: integer
     format: int64
@@ -83,7 +95,7 @@ properties:
   minDisk: 
     type: string
     nullable: true
-  minDiskGB: 
+  minDiskGB:
     type: string
     nullable: true
   rawSize: 
@@ -115,7 +127,7 @@ properties:
   userData: 
     type: string
     nullable: true
-  consoleKeymap: 
+  consoleKeymap:
     type: string
     nullable: true
   storageProvider:
@@ -129,51 +141,63 @@ properties:
       name:
         type: string
         nullable: true
-  externalId: 
+  externalId:
     type: string
     nullable: true
   visibility: 
     type: string
+    nullable: true
   accounts: 
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      nullable: true
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-  config: 
+          nullable: true
+  config:
     type: object
-    properties: 
-      memorySizeType: 
+    nullable: true
+    properties:
+      memorySizeType:
         type: string
-  volumes: 
+        nullable: true
+  volumes:
     type: array
     items:
       type: object
-  storageControllers: 
+      nullable: true
+  storageControllers:
     type: array
     items:
       type: object
-  networkInterfaces: 
+      nullable: true
+  networkInterfaces:
     type: array
     items:
       type: object
-  tags: 
+      nullable: true
+  tags:
     type: array
     items:
       type: object
-  locations: 
+      nullable: true
+  locations:
     type: array
     items:
       type: object
   dateCreated: 
     type: string
     format: date-time
+    nullable: true
   lastUpdated: 
     type: string
     format: date-time
+    nullable: true
   status: 
     type: string
+    nullable: true

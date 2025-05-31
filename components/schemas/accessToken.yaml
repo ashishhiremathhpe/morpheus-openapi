@@ -3,15 +3,19 @@ properties:
   access_token:
     type: string
     description: Token that grants API Access
+    nullable: true
   refresh_token: 
     type: string
     description: Token that can request an new API access_token
+    nullable: true
   expires_in:
     type: number
     description: Seconds until token expires
   token_type:
     type: string
     description: Token type granted
+    nullable: true
   scope:
     type: string
     description: Scope granted
+    nullable: true

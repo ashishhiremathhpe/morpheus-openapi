@@ -1,11 +1,12 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
+    nullable: true
+  description:
     type: string
     nullable: true
   controller:
@@ -17,77 +18,92 @@ properties:
         format: int64
       name:
         type: string
-  controllerId: 
+        nullable: true
+  controllerId:
     type: integer
     format: int64
     nullable: true
-  controllerMountPoint: 
+  controllerMountPoint:
     type: string
     nullable: true
-  resizeable: 
+  resizeable:
     type: boolean
     nullable: true
-  rootVolume: 
+  rootVolume:
     type: boolean
-  unitNumber: 
+  unitNumber:
     type: string
     nullable: true
-  deviceName: 
+  deviceName:
     type: string
-  deviceDisplayName: 
+    nullable: true
+  deviceDisplayName:
     type: string
+    nullable: true
   volumeName:
     type: string
+    nullable: true
   volumePath:
     type: string
+    nullable: true
   volumeType:
     type: string
+    nullable: true
   refType:
     type: string
+    nullable: true
   refId:
     type: integer
     format: int64
   diskMode:
     type: string
+    nullable: true
   diskType:
     type: string
+    nullable: true
   type:
     type: object
-    properties: 
-      id: 
+    nullable: true
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+        nullable: true
+      name:
         type: string
-  typeId: 
+        nullable: true
+  typeId:
     type: integer
     format: int64
-  category: 
-    type: string
-  status: 
-    type: string
-  statusMessage: 
+  category:
     type: string
     nullable: true
-  configurableIOPS: 
+  status:
+    type: string
+    nullable: true
+  statusMessage:
+    type: string
+    nullable: true
+  configurableIOPS:
     type: boolean
-  maxStorage: 
+  maxStorage:
     type: integer
     format: int64
   usedStorage:
     type: integer
     format: int64
-  displayOrder: 
+  displayOrder:
     type: integer
     format: int64
-  maxIOPS: 
+  maxIOPS:
     type: string
     nullable: true
-  uuid: 
+  uuid:
     type: string
-  active: 
+    nullable: true
+  active:
     type: boolean
   readOnly:
     type: boolean
@@ -95,42 +111,49 @@ properties:
     type: boolean
   poolName:
     type: string
-  zone: 
+    nullable: true
+  zone:
     type: object
-    properties: 
-      id: 
+    nullable: true
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  zoneId: 
+        nullable: true
+  zoneId:
     type: integer
     format: int64
-  datastore: 
+  datastore:
     type: object
-    properties: 
-      id: 
+    nullable: true
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  datastoreId: 
+        nullable: true
+  datastoreId:
     type: integer
     format: int64
     nullable: true
   datastoreOption:
     type: string
-  storageGroup: 
+    nullable: true
+  storageGroup:
     type: string
     nullable: true
-  namespace: 
+  namespace:
     type: string
     nullable: true
-  storageServer: 
+  storageServer:
     type: string
     nullable: true
-  source: 
+  source:
     type: string
+    nullable: true
   uniqueId:
     type: string
     nullable: true
@@ -139,6 +162,7 @@ properties:
     nullable: true
   externalId:
     type: string
+    nullable: true
   provisionType:
     type: string
     nullable: true
@@ -159,27 +183,35 @@ properties:
     nullable: true
   sourceId:
     type: string
+    nullable: true
   sourceImage:
     type: string
+    nullable: true
   imageType:
     type: string
+    nullable: true
   online:
     type: boolean
   rawData:
     type: string
+    nullable: true
   account:
     type: object
+    nullable: true
     properties:
       id:
         type: integer
         format: int64
       name:
         type: string
-  owner: 
+        nullable: true
+  owner:
     type: object
-    properties: 
-      id: 
+    nullable: true
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
+        nullable: true

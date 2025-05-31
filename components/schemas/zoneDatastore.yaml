@@ -1,43 +1,50 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  zone: 
+    nullable: true
+  zone:
     type: object
-    properties: 
-      id: 
+    nullable: true
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  type: 
+        nullable: true
+  type:
     type: string
-  freeSpace: 
+    nullable: true
+  freeSpace:
     type: integer
     format: int64
-  online: 
+  online:
     type: boolean
-  active: 
+  active:
     type: boolean
-  visibility: 
+  visibility:
     type: string
-  tenants: 
+    nullable: true
+  tenants:
     type: array
     nullable: true
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      nullable: true
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        defaultStore: 
+          nullable: true
+        defaultStore:
           type: boolean
-        defaultTarget: 
+        defaultTarget:
           type: boolean
-  resourcePermission: 
+  resourcePermission:
     $ref: resourcePermissions.yaml

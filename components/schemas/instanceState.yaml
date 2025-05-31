@@ -4,39 +4,50 @@ properties:
     type: array
     items:
       type: object
+      nullable: true
   iacDrift:
     type: boolean
   planResources:
     type: array
     items:
       type: object
+      nullable: true
   specs:
     type: array
     items:
       type: object
+      nullable: true
   stateData:
     type: string
+    nullable: true
   planData:
     type: string
+    nullable: true
   input:
     type: object
+    nullable: true
     properties:
       variables:
         type: array
         items:
           type: object
+          nullable: true
       providers:
         type: array
         items:
           type: object
+          nullable: true
       data:
         type: array
         items:
           type: object
+          nullable: true
   output:
     type: object
+    nullable: true
     properties:
       outputs:
         type: array
         items:
           type: object
+          nullable: true

@@ -1,63 +1,72 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  uuid: 
-    type: string
-  externalId: 
+  uuid:
     type: string
     nullable: true
-  name: 
+  externalId:
     type: string
-  code: 
+    nullable: true
+  name:
     type: string
+    nullable: true
+  code:
+    type: string
+    nullable: true
   labels:
     type: array
-    items: 
+    items:
       type: string
-  location: 
+  location:
     type: string
     nullable: true
-  owner: 
+  owner:
     type: object
-    properties: 
-      id: 
+    nullable: true
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  accountId: 
+        nullable: true
+  accountId:
     type: integer
     format: int64
-  account: 
+  account:
     type: object
-    properties: 
-      id: 
+    nullable: true
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  visibility: 
-    type: string
-  enabled: 
-    type: boolean
-  status: 
-    type: string
-  statusMessage: 
+        nullable: true
+  visibility:
     type: string
     nullable: true
-  statusDate: 
+  enabled:
+    type: boolean
+  status:
+    type: string
+    nullable: true
+  statusMessage:
+    type: string
+    nullable: true
+  statusDate:
     type: string
     format: date-time
     nullable: true
-  costStatus: 
+  costStatus:
     type: string
     nullable: true
-  costStatusMessage: 
+  costStatusMessage:
     type: string
     nullable: true
-  costStatusDate: 
+  costStatusDate:
     type: string
     format: date-time
     nullable: true
@@ -69,73 +78,83 @@ properties:
     type: string
     format: date-time
     nullable: true
-  zoneType: 
+  zoneType:
     type: object
-    properties: 
-      id: 
+    nullable: true
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+        nullable: true
+      name:
         type: string
-  zoneTypeId: 
+        nullable: true
+  zoneTypeId:
     type: integer
     format: int64
-  guidanceMode: 
+  guidanceMode:
     type: string
     nullable: true
-  storageMode: 
-    type: string
-  agentMode: 
-    type: string
-  userDataLinux: 
+  storageMode:
     type: string
     nullable: true
-  userDataWindows: 
+  agentMode:
     type: string
     nullable: true
-  consoleKeymap: 
+  userDataLinux:
     type: string
     nullable: true
-  containerMode: 
-    type: string
-  costingMode: 
+  userDataWindows:
     type: string
     nullable: true
-  serviceVersion: 
+  consoleKeymap:
     type: string
     nullable: true
-  securityMode: 
-    type: string
-  inventoryLevel: 
-    type: string
-  timezone: 
+  containerMode:
     type: string
     nullable: true
-  apiProxy: 
+  costingMode:
     type: string
     nullable: true
-  provisioningProxy: 
+  serviceVersion:
     type: string
     nullable: true
-  networkDomain: 
+  securityMode:
+    type: string
+    nullable: true
+  inventoryLevel:
+    type: string
+    nullable: true
+  timezone:
+    type: string
+    nullable: true
+  apiProxy:
+    type: string
+    nullable: true
+  provisioningProxy:
+    type: string
+    nullable: true
+  networkDomain:
     type: object
     nullable: true
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  domainName: 
-    type: string
-  regionCode: 
+        nullable: true
+  domainName:
     type: string
     nullable: true
-  autoRecoverPowerState: 
+  regionCode:
+    type: string
+    nullable: true
+  autoRecoverPowerState:
     type: boolean
-  scalePriority: 
+  scalePriority:
     type: integer
     format: int64
   defaultDatastoreSyncActive:
@@ -150,42 +169,49 @@ properties:
     type: boolean
   defaultPlanSyncActive:
     type: boolean
-  config: 
+  config:
     anyOf:
-    - $ref: zoneVcenterConfig.yaml
-    - $ref: zoneAwsConfig.yaml
-    - $ref: zoneAzureConfig.yaml
-    - $ref: zoneGcpConfig.yaml
-    - $ref: zonePrivateCloud.yaml
+      - $ref: zoneVcenterConfig.yaml
+      - $ref: zoneAwsConfig.yaml
+      - $ref: zoneAzureConfig.yaml
+      - $ref: zoneGcpConfig.yaml
+      - $ref: zonePrivateCloud.yaml
   credential:
     anyOf:
-    - type: object
-      properties:
-        type:
-          type: string
-    - type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        type:
-          type: string
-  imagePath: 
+      - type: object
+        nullable: true
+        properties:
+          type:
+            type: string
+            nullable: true
+      - type: object
+        nullable: true
+        properties:
+          id:
+            type: integer
+            format: int64
+          name:
+            type: string
+            nullable: true
+          type:
+            type: string
+            nullable: true
+  imagePath:
     type: string
     nullable: true
     description: Logo image URL
-  darkImagePath: 
+  darkImagePath:
     type: string
     nullable: true
     description: Dark logo image URL
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+    nullable: true
+  lastUpdated:
     type: string
     format: date-time
+    nullable: true
   lastSync:
     type: string
     format: date-time
@@ -198,64 +224,70 @@ properties:
     type: string
     format: date-time
     nullable: true
-  groups: 
+  groups:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      nullable: true
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        accountId: 
+          nullable: true
+        accountId:
           type: integer
           format: int64
-  securityServer: 
+  securityServer:
     type: object
-    properties: 
-      id: 
+    nullable: true
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-    nullable: true
-  networkServer: 
+        nullable: true
+  networkServer:
     type: object
-    properties: 
-      id: 
+    nullable: true
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-    nullable: true
-  stats: 
+        nullable: true
+  stats:
     type: object
-    properties: 
-      serverCounts: 
+    nullable: true
+    properties:
+      serverCounts:
         type: object
-        properties: 
-          all: 
+        nullable: true
+        properties:
+          all:
             type: integer
             format: int64
-          host: 
+          host:
             type: integer
             format: int64
-          hypervisor: 
+          hypervisor:
             type: integer
             format: int64
-          containerHost: 
+          containerHost:
             type: integer
             format: int64
-          vm: 
+          vm:
             type: integer
             format: int64
-          baremetal: 
+          baremetal:
             type: integer
             format: int64
-          unmanaged: 
+          unmanaged:
             type: integer
             format: int64
-  serverCount: 
+  serverCount:
     type: integer
     format: int64

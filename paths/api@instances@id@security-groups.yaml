@@ -34,9 +34,11 @@ get:
                           description: Tenant ID
                         name:
                           type: string
+                          nullable: true
                           description: Security group Name
                         description:
                           type: string
+                          nullable: true
                           description: Security group description
               - $ref: ../components/schemas/200-success.yaml
           examples:
@@ -93,9 +95,11 @@ post:
                           description: Tenant ID
                         name:
                           type: string
+                          nullable: true
                           description: Security group Name
                         description:
                           type: string
+                          nullable: true
                           description: Security group description
               - $ref: ../components/schemas/200-success.yaml
     '4XX':

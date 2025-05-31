@@ -5,6 +5,7 @@ required:
 properties:
   instance:
     type: object
+    nullable: true
     description: Key for name, site, instanceType layout, and plan.
     required:
       - name
@@ -15,14 +16,17 @@ properties:
     properties:
       name:
         type: string
+        nullable: true
         description: Name of the instance to be created.
         example: myinstance
       description:
         type: string
+        nullable: true
         description: Optional description field.
         example: "my new instance"
       site:
         type: object
+        nullable: true
         required:
           - id
         properties:
@@ -33,40 +37,48 @@ properties:
             example: 2
       instanceType:
         type: object
+        nullable: true
         required:
           - code
         properties:
           code:
             type: string
+            nullable: true
             description: The type of instance by code we want to fetch.
             example: "Ubuntu"
       layout:
         type: object
+        nullable: true
         required:
           - id
         properties:
           id:
             type: integer
             format: int64
+            nullable: true
             description: The layout id for the instance type that you want to provision. i.e. single process or cluster
             example: 105
       plan:
         type: object
+        nullable: true
         required:
           - id
         properties:
           id:
             type: integer
             format: int64
+            nullable: true
             description: The id for the memory and storage option pre-configured within Morpheus.
             example: 75
       instanceContext:
         type: string
+        nullable: true
         description: Environment
         example: "dev"
       hostName:
         type: string
-        description: Hostname of the instance to be created.  Can be the same as the instance name.
+        nullable: true
+        description: Hostname of the instance to be created. Can be the same as the instance name.
         example: myinstance
   zoneId:
     type: integer
@@ -75,14 +87,18 @@ properties:
     example: 6
   evars:
     type: array
+    nullable: true
     description: Environment Variables, an array of objects that have name and value.
     items:
       type: object
+      nullable: true
       properties:
         name:
           type: string
+          nullable: true
         value:
           type: string
+          nullable: true
   copies:
     type: integer
     format: int64
@@ -95,20 +111,24 @@ properties:
     default: 1
   servicePlanOptions:
     type: object
+    nullable: true
     description: Map of custom options depending on selected service plan.
   securityGroups:
     type: array
-    description: Key for security group configuration. It should be passed as an array of objects containing the id of the security group to assign the instance to.
     nullable: true
+    description: Key for security group configuration. It should be passed as an array of objects containing the id of the security group to assign the instance to.
     items:
       type: object
+      nullable: true
   volumes:
     type: array
-    description: The (optional) volumes parameter is for LV configuration, can create additional LVs at provision It should be passed as an array of
+    nullable: true
+    description: The (optional) volumes parameter is for LV configuration, can create additional LVs at provision. It should be passed as an array of
     items:
       $ref: instanceCreateVolume.yaml
   networkInterfaces:
     type: array
+    nullable: true
     description: |
       The networkInterfaces parameter is for network configuration.
       
@@ -124,37 +144,49 @@ properties:
       - $ref: instancesConfigGeneric.yaml
   labels:
     type: array
+    nullable: true
     description: Array of strings (keywords).
     items:
       type: string
+      nullable: true
   tags:
     description: Metadata tags, Array of objects having a name and value.
     type: array
+    nullable: true
     items:
       type: object
+      nullable: true
       properties:
         name:
           type: string
+          nullable: true
         value:
           type: string
+          nullable: true
   metadata:
     description: Alias for `tags`.
     type: array
+    nullable: true
     items:
       type: object
+      nullable: true
       properties:
         name:
           type: string
+          nullable: true
         value:
           type: string
+          nullable: true
   ports:
     description: |
       The ports parameter is for port configuration.
 
       The layout may have default ports, which are defined in node types, that are always configured. This parameter will be for additional custom ports to be opened.
     type: array
+    nullable: true
     items:
       type: object
+      nullable: true
       required:
         - port
       properties:
@@ -166,6 +198,7 @@ properties:
         name:
           description: A name for the port.
           type: string
+          nullable: true
         lb:
           description: The load balancer protocol. HTTP, HTTPS, or TCP.
           type: string
@@ -177,3 +210,4 @@ properties:
   taskSetName:
     description: The Workflow Name to execute.
     type: string
+    nullable: true

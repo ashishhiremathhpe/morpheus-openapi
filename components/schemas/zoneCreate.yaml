@@ -8,14 +8,17 @@ properties:
     type: string
     description: A unique name scoped to your account for the cloud
     example: My Cloud
+    nullable: true
   description:
     type: string
     description: Optional description field if you want to put more info there
+    nullable: true
   code:
     type: string
     description: Optional code for use with policies
     example: mycloud
-  labels: 
+    nullable: true
+  labels:
     type: array
     description: Array of label strings, can be used for filtering.
     items:
@@ -32,6 +35,7 @@ properties:
       - private
       - public
     default: private
+    nullable: true
   zoneType:
     anyOf:
       - type: object
@@ -47,6 +51,7 @@ properties:
           code:
             type: string
             example: "vmware"
+            nullable: true
   groupId:
     type: integer
     format: int64
@@ -95,10 +100,12 @@ properties:
   config:
     type: object
     description: Map containing zone configuration settings. See the section on specific zone types for details.
+    nullable: true
   securityMode:
     type: string
     description: host firewall. `off` or `internal`. a.k.a. "local firewall"
     default: "off"
+    nullable: true
   credential:
     type: object
     description: Map containing Credential ID. Setting `type` to `local` means use the values set in the local cloud config instead of associating a credential.
@@ -106,5 +113,8 @@ properties:
       type:
         type: string
         default: local
+        nullable: true
       id:
         type: integer
+        format: int64
+        nullable: true
