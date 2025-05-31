@@ -41,3 +41,7 @@ properties:
     type: boolean
     description: Create User
     default: true
+  imageId:
+    type: integer
+    format: int64
+    description: Virtual Image ID

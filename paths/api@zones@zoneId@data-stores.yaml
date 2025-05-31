@@ -13,6 +13,7 @@ get:
     - $ref: ../components/parameters/max.yaml
     - $ref: ../components/parameters/sort.yaml
     - $ref: ../components/parameters/direction.yaml
+    - $ref: ../components/parameters/offset.yaml
   responses:
     '200':
       description: Successful Request

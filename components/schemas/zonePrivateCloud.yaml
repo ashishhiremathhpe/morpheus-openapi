@@ -1,0 +1,36 @@
+type: object
+properties:
+  provider:
+    type: string
+    nullable: true
+  importExisting:
+    type: string
+    nullable: true
+  applianceUrl:
+    type: string
+    nullable: true
+  datacenterName:
+    type: string
+    nullable: true
+  networkServer.id:
+    type: string
+    nullable: true
+  networkServer:
+    type: object
+    nullable: true
+    properties:
+      id:
+        type: string
+        nullable: true
+  securityServer:
+    type: string
+    nullable: true
+  backupMode:
+    type: string
+    nullable: true
+  replicationMode:
+    type: string
+    nullable: true
+  configCmdbDiscovery:
+    type: boolean
+    nullable: true

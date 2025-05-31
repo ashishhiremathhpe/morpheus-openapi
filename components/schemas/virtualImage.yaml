@@ -118,9 +118,17 @@ properties:
   consoleKeymap: 
     type: string
     nullable: true
-  storageProvider: 
-    type: string
+  storageProvider:
+    type: object
     nullable: true
+    properties:
+      id:
+        type: integer
+        format: int64
+        nullable: true
+      name:
+        type: string
+        nullable: true
   externalId: 
     type: string
     nullable: true

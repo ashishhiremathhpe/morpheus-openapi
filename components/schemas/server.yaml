@@ -28,6 +28,9 @@ properties:
         format: int64
       name: 
         type: string
+  preferredParentServer:
+    type: object
+    nullable: true
   accountId: 
     type: integer
     format: int64
@@ -54,8 +57,13 @@ properties:
       id: 
         type: integer
         format: int64
+        nullable: true
       name: 
         type: string
+        nullable: true
+      type:
+        type: string
+        nullable: true
   plan: 
     type: object
     properties: 
@@ -227,6 +235,7 @@ properties:
     nullable: true
   statusEta: 
     type: string
+    format: date-time
     nullable: true
   powerState: 
     type: string
@@ -468,9 +477,9 @@ properties:
         nullable: true
       isEC2: 
         type: boolean
-      resourcePoolId: 
-        type: integer
-        format: int64
+      resourcePoolId:
+        type: string
+        nullable: true
       hostId:
         type: integer
         format: int64
@@ -492,6 +501,24 @@ properties:
       powerScheduleType:
         type: integer
         format: int64
+        nullable: true
+      attachVirtIODrivers:
+        type: boolean
+        nullable: true
+      imageId:
+        type: integer
+        format: int64
+        nullable: true
+      expose:
+        type: integer
+        format: int64
+        nullable: true
+      kvmHostId:
+        type: integer
+        format: int64
+        nullable: true
+      preApprovalStatus:
+        type: string
         nullable: true
   instance: 
     type: object
@@ -526,5 +553,11 @@ properties:
     type: string
     nullable: true
   guestConsolePort: 
+    type: string
+    nullable: true
+  maintenanceMode:
+    type: boolean
+    nullable: true
+  placementStrategy:
     type: string
     nullable: true

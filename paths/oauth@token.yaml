@@ -54,6 +54,7 @@ post:
               format: password
             refresh_token:
               description: The `refresh_token` value from a previous API generation can be utilized instead of `username` and `password`.
+              type: string
   responses:
     '200':
       description: Successful Request

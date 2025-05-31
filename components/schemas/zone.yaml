@@ -156,6 +156,7 @@ properties:
     - $ref: zoneAwsConfig.yaml
     - $ref: zoneAzureConfig.yaml
     - $ref: zoneGcpConfig.yaml
+    - $ref: zonePrivateCloud.yaml
   credential:
     anyOf:
     - type: object
