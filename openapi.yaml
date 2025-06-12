@@ -32,6 +32,8 @@ paths:
     $ref: paths/api@clusters.yaml
   /api/clusters/{clusterId}/datastores:
     $ref: paths/api@clusters@id@datastores.yaml
+  /api/execution-request/{uniqueId}:
+    $ref: paths/api@execution-request@uniqueId.yaml
   /api/instances:
     $ref: paths/api@instances.yaml
   /api/instances/{id}:
@@ -66,6 +68,10 @@ paths:
     $ref: paths/api@servers@id@start.yaml
   /api/servers/{id}/stop:
     $ref: paths/api@servers@id@stop.yaml
+  /api/servers/{id}/volumes/{volumeId}/attach:
+    $ref: paths/api@servers@id@volumes@id@attach.yaml
+  /api/servers/{id}/volumes/{volumeId}/detach:
+    $ref: paths/api@servers@id@volumes@id@detach.yaml
   /api/service-plans:
     $ref: paths/api@service-plans.yaml
   /api/service-plans/{id}:

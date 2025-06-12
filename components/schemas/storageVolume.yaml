@@ -149,8 +149,15 @@ properties:
     type: string
     nullable: true
   storageServer:
-    type: string
+    type: object
     nullable: true
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+        nullable: true
   source:
     type: string
     nullable: true

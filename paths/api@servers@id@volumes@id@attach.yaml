@@ -56,7 +56,10 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            type: object
+            properties:
+              success:
+                type: boolean
           examples:
             Response:
               value:
