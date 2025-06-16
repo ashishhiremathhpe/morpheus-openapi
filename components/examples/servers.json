@@ -200,6 +200,13 @@
       "enabled": true,
       "tagCompliant": null,
       "containers": [],
+      "instance": {
+        "id": 2342422,
+        "name": "67105test01",
+        "displayName": "67105test01",
+        "accountId": 3,
+        "accountName": "Morpheus"
+      },
       "guestConsolePreferred": false,
       "guestConsoleType": null,
       "guestConsoleUsername": null,

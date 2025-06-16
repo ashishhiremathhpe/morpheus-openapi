@@ -5,8 +5,8 @@
         "externalId": "vm-104987",
         "internalId": "502d9a89-7fc8-1871-b192-f147984a8f3b",
         "externalUniqueId": "422d0218-8a98-da27-fa01-5532bb773433",
-        "name": "power-vc-proxy-dont-delete",
-        "externalName": "power-vc-proxy-dont-delete",
+        "name": "power-vc-proxy",
+        "externalName": "power-vc-proxy",
         "hostname": "dd-vmw-ubuntu-1",
         "parentServer": {
             "id": 577784,
@@ -232,6 +232,13 @@
             "vmwareFolderId": "group-v80",
             "noAgent": false,
             "powerScheduleType": null
+        },
+        "instance": {
+            "id": 2342422,
+            "name": "power-vc-proxy",
+            "displayName": "power-vc-proxy",
+            "accountId": 1,
+            "accountName": "Morpheus QA"
         },
         "guestConsolePreferred": true,
         "guestConsoleType": "ssh",
