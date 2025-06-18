@@ -42,13 +42,6 @@ properties:
         oneOf: 
         - $ref: userSourceCreationMap.yaml
         - $ref: userSourceCreationObject.yaml
-      roleMappingNames:
-        type: object
-        description: |
-          Map of Morpheus '`Role ID`':'`Role Name`'.
-        deprecated: true
-        additionalProperties:
-          type: string
       allowCustomMappings:
         type: boolean
         description: Enable Role Mapping Permission
