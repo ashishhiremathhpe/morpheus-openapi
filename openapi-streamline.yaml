@@ -1,0 +1,331 @@
+openapi: 3.0.3
+info:
+  title: Morpheus API
+  description: |-
+    Morpheus is a powerful cloud management tool that provides provisioning, monitoring, logging, backups, and application deployment strategies.
+
+    This document describes the Morpheus API protocol and the available endpoints. Sections are organized in the same manner as they appear in the Morpheus UI.
+  version: 8.0.8
+  termsOfService: https://morpheusdata.com/terms-and-conditions/
+  contact:
+    email: dev@morpheusdata.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: https://{serverURL}
+    description: Morpheus API
+    variables:
+      serverURL:
+        default: CHANGEME
+x-readme:
+  explorer-enabled: true
+  metrics-enabled: false
+  samples-languages:
+    - curl
+    - python
+    - powershell
+    - javascript
+    - go
+paths:
+  /api/clusters:
+    $ref: paths/api@clusters.yaml
+  /api/clusters/{clusterId}/datastores:
+    $ref: paths/api@clusters@id@datastores.yaml
+  /api/execution-request/{uniqueId}:
+    $ref: paths/api@execution-request@uniqueId.yaml
+  /api/instances:
+    $ref: paths/api@instances.yaml
+  /api/instances/{id}:
+    $ref: paths/api@instances@id.yaml
+  /api/instances/{id}/resize:
+    $ref: paths/api@instances@id@resize.yaml
+  /api/instances/{id}/restart:
+    $ref: paths/api@instances@id@restart.yaml
+  /api/instances/{id}/security-groups:
+    $ref: paths/api@instances@id@security-groups.yaml
+  /api/instances/{id}/start:
+    $ref: paths/api@instances@id@start.yaml
+  /api/instances/{id}/state:
+    $ref: paths/api@instances@id@state.yaml
+  /api/instances/{id}/stop:
+    $ref: paths/api@instances@id@stop.yaml
+  /api/instances/{id}/suspend:
+    $ref: paths/api@instances@id@suspend.yaml
+  /api/instances/{id}/threshold:
+    $ref: paths/api@instances@id@threshold.yaml
+  /api/networks:
+    $ref: paths/api@networks.yaml
+  /api/networks/{id}:
+    $ref: paths/api@networks@id.yaml
+  /api/servers:
+    $ref: paths/api@servers.yaml
+  /api/servers/{id}:
+    $ref: paths/api@servers@id.yaml
+  /api/servers/{id}/resize:
+    $ref: paths/api@servers@id@resize.yaml
+  /api/servers/{id}/start:
+    $ref: paths/api@servers@id@start.yaml
+  /api/servers/{id}/stop:
+    $ref: paths/api@servers@id@stop.yaml
+  /api/servers/{id}/volumes/{volumeId}/attach:
+    $ref: paths/api@servers@id@volumes@id@attach.yaml
+  /api/servers/{id}/volumes/{volumeId}/detach:
+    $ref: paths/api@servers@id@volumes@id@detach.yaml
+  /api/service-plans:
+    $ref: paths/api@service-plans.yaml
+  /api/service-plans/{id}:
+    $ref: paths/api@service-plans@id.yaml
+  /api/storage-volumes:
+    $ref: paths/api@storage-volumes.yaml
+  /api/storage-volumes/{id}:
+    $ref: paths/api@storage-volumes@id.yaml
+  /api/virtual-images:
+    $ref: paths/api@virtual-images.yaml
+  /api/virtual-images/{virtualImageId}:
+    $ref: paths/api@virtual-images@id.yaml
+  /api/virtual-images/{virtualImageId}/upload:
+    $ref: paths/api@virtual-images@id@upload.yaml
+  /api/zones:
+    $ref: paths/api@zones.yaml
+  /api/zones/{id}:
+    $ref: paths/api@zones@id.yaml
+  /api/zones/{zoneId}/data-stores:
+    $ref: paths/api@zones@zoneId@data-stores.yaml
+  /api/zones/{zoneId}/data-stores/{id}:
+    $ref: paths/api@zones@zoneId@data-stores@id.yaml
+  /oauth/token:
+    $ref: paths/oauth@token.yaml
+components:
+  securitySchemes:
+    bearerAuth:
+      description: |
+        Populate a bearer token for the Morpheus appliance you are testing.
+        This can be generated in the UI under your personal `user settings`
+        or
+        Additional API methods can be found below.
+        https://morpheusdata.readme.io/reference/getaccesstoken-3    
+      type: http
+      scheme: bearer
+    cypherAuth-XCToken:
+      description: An access token or an execution lease token.
+      type: apiKey
+      in: header
+      name: X-Cypher-Token
+    cypherAuth-XVToken:
+      description: An access token or an execution lease token.
+      type: apiKey
+      in: header
+      name: X-Vault-Token
+    cypherAuth-XMLease:
+      description: An execution lease token.
+      type: apiKey
+      in: header
+      name: X-Morpheus-Lease
+security:
+  - bearerAuth: []
+externalDocs:
+  url: https://docs.morpheusdata.com
+tags:
+  - name: Administration
+    description: All Endpoints Under the Administration Tab
+  - name: Activity
+    description: Manage Appliance Activity Logs
+  - name: Alerts
+    description: Manage Alerts
+  - name: Appliance Settings
+    description: Manage Appliance Settings
+  - name: Approvals
+    description: Manage Approvals
+  - name: Apps
+    description: Manage Apps
+  - name: Archives
+    description: |
+      Archives provides a way to store your files and make them available for download by your Scripts and Users.
+
+      Archives are organized by buckets. Each bucket has a unique name that is used to identify it in URLs and Scripts.
+  - name: Authentication
+    description: Manage Appliance Authentication
+  - name: Automation
+    description: Manage Tasks and Workflows
+  - name: Backup Settings
+    description: Manage Backup Settings
+  - name: Backups
+    description: Manage Backups
+  - name: Billing
+    description: Manage Billing
+  - name: Blueprints
+    description: Manage Blueprints
+  - name: Budgets
+    description: Manage Budgets
+  - name: Catalog Items
+    description: |
+      Provides API interfaces for the managing catalog item types. These are the types that become available for order by the Service Catalog persona. This is the adminstrative api for the Library: Catalog Items functionality which was previously located under Tools: Self Service.
+  - name: Checks
+    description: Manage Monitoring Checks
+  - name: Clients
+    description: Manage Clients
+  - name: Clouds
+    description: Manage Clouds
+  - name: Cluster Layouts
+    description: Manage Cluster Layouts
+  - name: Cluster Packages
+    description: Manage Cluster Packages
+  - name: Clusters
+    description: Manage Kubernetes Clusters
+  - name: Contacts
+    description: Manage Monitoring Contacts
+  - name: Containers
+    description: Manage Containers
+  - name: Credentials
+    description: Manage Credentials
+  - name: Cypher
+    description: >-
+      Cypher at its core is a secure Key/Value store. But what makes cypher useful is the ability to securely store or generate credentials to connect to your instances. Not only are these credentials encrypted but by using a cypher you don't have to burn in connection credentials between instances into your apps.
+
+      Cypher keys can be revoked, either through lease timeouts or manually. So even if somebody were to gain access to your keys you could revoke access to the keys and generate new ones for your applications.
+  - name: Datastores
+    description: Manage Storage Datastores
+  - name: Deployments
+    description: Manage File Deployments
+  - name: Deploys
+    description: Manage Deploys
+  - name: Documentation
+    description: >-
+      View documentation for your [Morpheus Data](https://morpheusdata.com)
+      appliance.
+  - name: Email Templates
+    description: Manage Email Templates
+  - name: Environments
+    description: Manage Environments
+  - name: File Templates
+    description: Manage File Templates
+  - name: Groups
+    description: Manage Groups
+  - name: Guidance
+    description: Manage Guidance Recommendations
+  - name: Guidance Settings
+    description: Manage Guidance Settings
+  - name: Health
+    description: View Appliance Health Statistics
+  - name: History
+    description: View History
+  - name: Hosts
+    description: Manage Hosts
+  - name: Identity Sources
+    description: Manage Identity Sources
+  - name: Image Builds
+    description: Manage Image Builds
+  - name: Incidents
+    description: Manage Ticket Incidents
+  - name: Infrastructure
+    description: All Endpoints Under the Infrastructure Tab
+  - name: Inputs
+    description: Manage Inputs (Option Types)
+  - name: Instance Types
+    description: Manage Instance Types
+  - name: Instances
+    description: Manage Instances
+  - name: Integrations
+    description: Manage Integrations
+  - name: Invoices
+    description: Manage Invoices
+  - name: Jobs
+    description: Manage Jobs
+  - name: Key Pairs
+    description: Manage Key Pairs
+  - name: Layouts
+    description: Manage Layouts
+  - name: Library
+    description: All Endpoints Under the Library Tab
+  - name: License
+    description: Manage Appliance License
+  - name: Load Balancers
+    description: Manage Load Balancers
+  - name: Log Settings
+    description: Manage Log Settings
+  - name: Logs
+    description: View Logs
+  - name: Monitoring
+    description: All Endpoints Under the Monitoring Tab
+  - name: Monitoring Settings
+    description: Manage Monitoring Settings
+  - name: Morpheus API
+    description: All Endpoints Specific to Morpheus API
+  - name: Networks
+    description: Manage Networks
+  - name: Node Types
+    description: Manage Node/VM Types
+  - name: Operations
+    description: All Endpoints Under the Operations Tab
+  - name: Option Lists
+    description: Manage Option Lists
+  - name: Options
+    description: Manage Options
+  - name: Personas
+    description: All Endpoints Pertaining to Personas
+  - name: Ping
+    description: Ping Appliance
+  - name: Plugins
+    description: Manage Plugins
+  - name: Policies
+    description: Manage Policies
+  - name: Price Sets
+    description: Manage Price Sets
+  - name: Prices
+    description: Manage Prices
+  - name: Projects
+    description: Manage Projects
+  - name: Provisioning
+    description: All Endpoints Under the Provisioning Tab
+  - name: Provisioning Settings
+    description: Manage Provisioning Settings
+  - name: Provisioning Licenses
+    description: |
+      Provides API interfaces for managing provisioning licenses within Morpheus. This allows configuration of which Windows license keys should be installed when provisioning your virtual images.
+  - name: Reports
+    description: Manage Reports
+  - name: Resource Pools
+    description: Manage Resource Pools
+  - name: Roles
+    description: Manage Roles (Authorities)
+  - name: Scripts
+    description: Manage Scripts
+  - name: Search
+    description: Global Search Functions
+  - name: Security Groups
+    description: Manage Security Groups
+  - name: Security Packages
+    description: Manage Security Packages
+  - name: Security Scans
+    description: Manage Security Scans
+  - name: Self Service
+    description: Manage Self Service
+  - name: Service Catalog
+    description: Manage Service Catalog
+  - name: Service Plans
+    description: Manage Service Plans
+  - name: Setup
+    description: Setup New Appliance
+  - name: Spec Templates
+    description: Manage Spec Templates
+  - name: SSL Certificates
+    description: Manage SSL Certificates
+  - name: Storage
+    description: Manage Storage
+  - name: Tenants
+    description: Manage Tenants (Accounts)
+  - name: Tools
+    description: All Endpoints Under the Tools Tab
+  - name: Usage
+    description: View Usage
+  - name: Users
+    description: Manage Users
+  - name: VDI
+    description: Manage VDI Pools & Desktops
+  - name: Virtual Images
+    description: Manage Virtual Images
+  - name: Whitelabel Settings
+    description: Manage Whitelabelling
+  - name: Wiki
+    description: Manage Wiki
