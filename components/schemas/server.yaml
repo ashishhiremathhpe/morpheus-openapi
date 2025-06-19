@@ -510,9 +510,10 @@ properties:
         format: int64
         nullable: true
       expose:
-        type: integer
-        format: int64
-        nullable: true
+        type: array
+        items:
+          type: integer
+          format: int64
       kvmHostId:
         type: integer
         format: int64
