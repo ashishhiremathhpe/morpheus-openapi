@@ -1,1 +1,6 @@
 type: object
+properties:
+  imageId:
+    type: integer
+    format: int64
+    description: Virtual Image ID
