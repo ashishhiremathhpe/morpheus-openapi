@@ -3,6 +3,8 @@ in: path
 description: Morpheus ID of the Object being referenced
 required: true
 schema:
-  type: integer
-  format: int64
+  anyOf:
+    - type: string
+    - type: integer
+      format: int64
 example: 1

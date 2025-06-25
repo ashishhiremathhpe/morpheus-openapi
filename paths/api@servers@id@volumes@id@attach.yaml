@@ -60,6 +60,8 @@ put:
             properties:
               success:
                 type: boolean
+              executionId:
+                type: string
           examples:
             Response:
               value:
